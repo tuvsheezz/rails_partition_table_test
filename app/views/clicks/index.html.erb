@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Clicks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Status</th>
+      <th>Uuid</th>
+      <th>Click timestamp</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @clicks.each do |click| %>
+      <tr>
+        <td><%= click.status %></td>
+        <td><%= click.uuid %></td>
+        <td><%= click.click_timestamp %></td>
+        <td><%= link_to 'Show', click %></td>
+        <td><%= link_to 'Edit', edit_click_path(click) %></td>
+        <td><%= link_to 'Destroy', click, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= will_paginate @posts %>
+<%= link_to 'New Click', new_click_path %>
